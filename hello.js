@@ -1,8 +1,10 @@
 var fs = require('fs');
-var num = 0;
-fs.readFile(process.argv[2], 'utf8', function callback(err, data){
-	if (!err) {
-		num=data.split('\n').length-1;
-	} else throw err;
+var path = require('path');
+var ext = '.'+process.argv[3];
+fs.readdir(process.argv[2], function callback(err, list){
+	if (err) throw err;
+	for (i=0; i<list.length; i++) {
+		if (path.extname(list[i]) == ext)
+			console.log(list[i]);
+		}
 });
-console.log(num);
