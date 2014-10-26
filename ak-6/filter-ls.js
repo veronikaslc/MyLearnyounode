@@ -20,12 +20,12 @@ var invoke_filter_ls = function(dirPath, fileExtension, callback) {
 		var re = new RegExp('.' + fileExtension + '$');
 
 		// since 'fs' is a _global_ variable, it is accessible from anywhere
-		fs.readdir(dirPath, function(err, data) {
-				if (err) {
-						return callback(err);
-				}
-				return callback(null, filter_ls(data, re));
-		})};
+    fs.readdir(dirPath, function(err, data) {
+        if (err) {
+            return callback(err);
+        }
+        return callback(null, filter_ls(data, re));
+    })};
 
 module.exports = invoke_filter_ls;
 

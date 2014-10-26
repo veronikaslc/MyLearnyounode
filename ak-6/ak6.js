@@ -14,11 +14,11 @@ var import_function = require ('./filter-ls');
 var firstArg = process.argv[2];
 var secondArg = process.argv[3];
 import_function(firstArg,
-									secondArg,
-									function (err, data) {
-											if(err) {
-													console.log(err);
-													return;
-											}
-											data.forEach(function(it) {console.log(it)});
-									});
+                secondArg,
+                function (err, data) {
+                    if(err) {
+                        console.log(err);
+                        return;
+                    }
+                    data.forEach(function(it) {console.log(it)});
+                });
