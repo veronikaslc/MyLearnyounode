@@ -10,8 +10,17 @@ function filter_ls(listOfStrings, re) {
 		});
 }
 
-// This function is "business layer". It doesn't have to deal with things like
-// input validation, parsing command line args, etc. 
+// This function is "business layer".
+// It doesn't have to deal with things like
+// input validation, parsing command line args, etc. In fact,
+// it doesn't even deal with printing things out! - that would not be
+// "business logic', strictly speaking. That printing stuff out
+// is done on the "cilent side" - in our case, in the callback function
+// passed in here, which, after seeing it got not an error, but data,
+// will happily proceed to do what IT knows needs to be done. This
+// module here hasn't a slightest idea how the data it provides is used.
+// Such 'decoupling' is a big deal in software development world.
+
 var invoke_filter_ls = function(dirPath, fileExtension, callback) {
 		
 		// this will match a string with a period character, followed by the string
