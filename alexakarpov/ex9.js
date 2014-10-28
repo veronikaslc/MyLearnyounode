@@ -15,38 +15,37 @@ var state = {
 
 var count = 3;
 function notify () {
-		if (--count) {
-				return;
-		} else {
+		if (--count == 0) {
 				console.log (state.out1);
 				console.log (state.out2);
 				console.log (state.out3);
 		}
 }				
 
+function response_handler (response) {
+		response.on('end', function() {
+				notify()});
+		response.on('data', function() {
+		});
+}
+
 http.get (url1, function (response) {
 		response.on ('data', function (chunk) {
-				state.out1 +=chunk;
-		});
-		response.on ('end', function () {
-				notify ();
-		});
+				state.out1 +=chunk});
+		response.on('end', function () {
+				notify()});
 });
 
 http.get (url2, function (response) {
 		response.on ('data', function (chunk) {
-				state.out2 +=chunk;
-		});
-		response.on ('end', function () {
-				notify ();
-		});
+				state.out2 +=chunk});
+		response.on('end', function () {
+				notify()});
 });
 
 http.get (url3, function (response) {
-		response.on ('data', function (chunk) {
-				state.out3 +=chunk;
-		});
-		response.on ('end', function () {
-				notify ();
-		});
+		response.on('data', function (chunk) {
+				state.out3 +=chunk});
+		response.on('end', function () {
+				notify()});
 });
