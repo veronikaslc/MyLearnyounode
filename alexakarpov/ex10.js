@@ -28,20 +28,22 @@ console.log("TCP time server listening on port " + port);
 
 /*
 To test (on linux):
-
 in one terminal tab, start your server likes this:
-
-node ex10.js 3333
+> node ex10.js 3333
 
 in another tab, test manually like this:
 
-➜> telnet localhost 3333
+> telnet localhost 3333
 
 Or, to be more explicit:
 
 > telnet 127.0.0.1 3333
 
-This is a basic tcp client, which exists on Windows too. In this case, because our server never waits for any input, it will connect, and immediately receive the response (the date-time string), and then immediately will terminate, because the server is closing the _connection_. But you can run telnet as many times as you want - and server will keep responding. This is the output you will see on the client side:
+This is a basic tcp client, which exists on Windows too. In this case, because our server never
+waits for any input, it will connect, and immediately receive the response (the date-time string),
+and then immediately will terminate, because the server is closing the _connection_. But you can
+run telnet as many times as you want - and server will keep responding. This is the output you will
+see on the client side:
 
 Trying 127.0.0.1...
 Connected to localhost.
@@ -49,9 +51,11 @@ Escape character is '^]'.
 2014-10-28 23:11
 Connection closed by foreign host.
 
-As you can see, telnet is able to establish the connection (it met with the callback), it then instructs you on the details of it's protocol. Then it prints the data it immediately received. Then, it exits, because your server closed the connection.
+As you can see, telnet is able to establish the connection (it met with the callback), it then instructs
+you on the details of it's protocol. Then it prints the data it immediately received. Then, it exits,
+because your server closed the connection.
 
-And this is the output on the server side:
+And this is the output on the server side ( I ran telnet 4 times on the client side):
 
 > node ex10.js 3333
 
