@@ -2,6 +2,7 @@ var port = Number(process.argv[2]);
 var net = require('net');
 
 var server = net.createServer(function(socket) {
+    // note, this function is inner to our callback - no need to pollute global namespace with such helpers
     function padd(n) {
         if (n < 10) {
             return ("0" + n);
