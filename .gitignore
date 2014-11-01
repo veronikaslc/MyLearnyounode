@@ -46,3 +46,5 @@ Temporary Items
 #======EDITORS, bak files, etc.========
 *~
 *#
+#======NODE.js=========================
+node_modules
